@@ -1,13 +1,12 @@
-name: chest_xray_with_mlflow
+name: chest_xray
 
-# conda_env: requirements.yaml
+conda_env: conda.yaml
 
-docker_env:
-   image:  artinmajdi/miniconda-cuda-tensorflow:latest
 
 entry_points:
     main:
         parameters:
             epoch: {type: str, default: 3}
             bsize: {type: str, default: 30}
-        command: python main.py --epoch {epoch} --bsize {bsize}
+            max_sample: {type: str, default: 1000}
+        command: python main.py --epoch {epoch} --bsize {bsize} --max_sample {max_sample}
